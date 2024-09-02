@@ -1,0 +1,62 @@
+body, html {
+    font-family: sans-serif;
+    display: flex;
+    overflow: visible;
+    height: 100%;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;    
+    text-align: center;
+    align-items: center;
+}
+
+.labelContainer {
+    position: absolute;
+    left: -15%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.numberContainer1, .numberContainer2, .numberContainer3, .numberContainer4, .numberContainer5, .numberContainer6 {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3px;
+}
+
+.squareInput {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    box-sizing: border-box;
+    margin-left: 5px;
+    position: relative;
+    transform-style: preserve-3d; /* Ensures 3D transformation is preserved */
+}
+
+.squareInput::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightgreen;
+    transition: transform 0.6s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+    z-index: -1; /* Ensure this is behind the input */
+}
+
+.squareInput.flipped::before {
+    transform: rotateY(180deg);
+}
